@@ -6,11 +6,11 @@ gem 'rails', '4.2.10'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 # for Heroku deployment - as described in Ap. A of ELLS book
-gem 'pg', '~> 0.15'
+gem 'pg', '~> 0.21'
 
 group :development, :test do
-  #gem 'sqlite3'
-  gem 'sqlite3', '~> 1.3.13'
+  gem 'sqlite3'
+  #gem 'sqlite3', '~> 1.3.13'
   gem 'byebug'
   gem 'database_cleaner', '1.4.1'
   gem 'capybara', '2.4.4'
