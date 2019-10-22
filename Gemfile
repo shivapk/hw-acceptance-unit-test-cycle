@@ -9,6 +9,7 @@ gem 'rails', '4.2.10'
 group :development, :test do
   #gem 'sqlite3'
   gem 'pg', '~> 0.21'
+  #gem 'sqlite3', '~> 1.3.13'
   gem 'byebug'
   gem 'database_cleaner', '1.4.1'
   gem 'capybara', '2.4.4'
@@ -25,8 +26,6 @@ group :production do
   #gem 'pg'
   gem 'pg', '~> 0.21'
 end
-
-gem 'pg', '~> 0.21'
 
 
 # Gems used only for assets and not required
