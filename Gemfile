@@ -43,3 +43,4 @@ gem 'haml'
 
 # Deploy with Capistrano
 # gem 'capistrano'
+
