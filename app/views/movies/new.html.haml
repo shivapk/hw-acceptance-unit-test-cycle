@@ -1,9 +1,12 @@
-%h2 Create New Movie
+%h1 Create New Movie
 
 = form_tag movies_path do
 
   = label :movie, :title, 'Title'
   = text_field :movie, 'title'
+  
+  = label :movie, :director, 'director'
+  = text_field :movie, 'director'
 
   = label :movie, :rating, 'Rating'
   = select :movie, :rating, ['G','PG','PG-13','R','NC-17']
