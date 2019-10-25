@@ -1,4 +1,4 @@
-%h1 All Movies of Director #{@movie.director}
+%h3 All Movies of Director #{@movie.director}
 
 %table#movies
   %thead
@@ -17,6 +17,4 @@
         %td= movie.director
         %td= link_to "More about #{movie.title}", movie_path(movie)
 
-= link_to 'Add new movie', new_movie_path
-%br
 = link_to 'Back to movie list', movies_path

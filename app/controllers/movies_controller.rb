@@ -17,6 +17,8 @@ class MoviesController < ApplicationController
       ordering,@title_header = {:title => :asc}, 'hilite'
     when 'release_date'
       ordering,@date_header = {:release_date => :asc}, 'hilite'
+    when 'director'
+      ordering,@director_header = {:director => :asc}, 'hilite'
     end
     @all_ratings = Movie.all_ratings
     @selected_ratings = params[:ratings] || session[:ratings] || {}
@@ -63,11 +65,18 @@ class MoviesController < ApplicationController
   
   def same_director
     @movie = Movie.find(params[:id])
-    if @movie.director.nil? || @movie.director.empty?
-      flash[:notice] = "'#{@movie.title}' has no director info"
-      redirect_to movies_path 
+    
+    if @movie.director == nil || @movie.director == ""
+      flash[:notice] = "\'" + @movie.title + "\' has no director info"
+      redirect_to '/movies' and return
     end
-    @movies = Movie.same_director(@movie.director)
+    
+    @movies_with_same_director = @movie.movies_with_same_director
+    
+    if @movies_with_same_director.empty?
+      redirect_to '/movies' and return
+    end
+    
   end
-
+  
 end

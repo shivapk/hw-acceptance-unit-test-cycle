@@ -3,7 +3,14 @@ class Movie < ActiveRecord::Base
     %w(G PG PG-13 NC-17 R)
   end
   
-  def self.same_director(director_name)
-    Movie.where(director: director_name).order({:title => :asc})
+  def movies_with_same_director
+    results = []
+    Movie.where(director: self.director).find_each do |movie|
+      if movie != self
+        results += [movie.title]
+      end
+    end
+    return results
   end
+  
 end
